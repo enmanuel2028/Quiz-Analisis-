@@ -13,15 +13,20 @@ public class TaskListView extends JFrame {
     private JList<Task> taskList;
     private DefaultListModel<Task> taskListModel;
 
+    //se importan los vinculos correspondientes, "Hay que rectificar el movimiento y localizacion de los archivos .jav por faltante en el resource path"
+
     public TaskListView(TaskListController controller) {
         this.controller = controller;
         taskListModel = new DefaultListModel<>();
         taskList = new JList<>(taskListModel);
 
+        //funciones view_model + agregar, eliminar tareas
+
         JButton addButton = new JButton("Agregar tarea");
         JButton removeButton = new JButton("Eliminar tarea");
         JButton completeButton = new JButton("Completar tarea");
 
+        //verificar la funciones para editar el task
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -31,6 +36,8 @@ public class TaskListView extends JFrame {
                 taskListModel.addElement(task);
             }
         });
+        
+        //error en el metodo de insercion, verificar
 
         removeButton.addActionListener(new ActionListener() {
             @Override
@@ -42,6 +49,8 @@ public class TaskListView extends JFrame {
                 }
             }
         });
+
+        //el metodo ActionListener no funciona, hay que verificar el metodo
 
         completeButton.addActionListener(new ActionListener() {
             @Override
